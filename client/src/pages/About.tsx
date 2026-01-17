@@ -42,12 +42,12 @@ function NetworkParticles() {
   const [particles, setParticles] = useState<any[]>([]);
 
   useEffect(() => {
-    setParticles([...Array(60)].map((_, i) => ({
+    setParticles([...Array(15)].map((_, i) => ({
       id: i,
       left: Math.random() * 100 + "%",
       initialY: Math.random() * 100 + "vh",
-      scale: Math.random() * 0.3 + 0.1,
-      duration: Math.random() * 30 + 20,
+      scale: Math.random() * 0.3 + 0.2,
+      duration: Math.random() * 25 + 25,
       delay: Math.random() * -50
     })));
   }, []);
@@ -57,7 +57,7 @@ function NetworkParticles() {
       {particles.map((p) => (
         <motion.div
           key={p.id}
-          className="absolute text-primary/10"
+          className="absolute text-primary/5"
           style={{ left: p.left }}
           initial={{ 
             y: p.initialY,
@@ -67,8 +67,8 @@ function NetworkParticles() {
           }}
           animate={{ 
             y: ["100vh", "-20vh"],
-            rotate: [0, 180, 360],
-            opacity: [0, 0.4, 0.4, 0]
+            rotate: [0, 360],
+            opacity: [0, 0.3, 0.3, 0]
           }}
           transition={{ 
             duration: p.duration,
@@ -78,15 +78,7 @@ function NetworkParticles() {
           }}
         >
           <div className="relative">
-            <Globe className="w-16 h-16 md:w-32 md:h-32 blur-[0.5px]" />
-            <motion.div 
-              className="absolute inset-0 bg-primary/20 rounded-full blur-3xl"
-              animate={{ 
-                opacity: [0.1, 0.5, 0.1],
-                scale: [0.8, 1.2, 0.8]
-              }}
-              transition={{ duration: 4, repeat: Infinity }}
-            />
+            <Globe className="w-16 h-16 md:w-24 md:h-24 blur-[1px]" />
           </div>
         </motion.div>
       ))}
