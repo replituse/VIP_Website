@@ -41,28 +41,35 @@ function Counter({ value, suffix = "" }: { value: string; suffix?: string }) {
 function NetworkParticles() {
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {[...Array(15)].map((_, i) => (
+      {[...Array(20)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute text-primary/20"
+          className="absolute text-primary/30"
           initial={{ 
             x: Math.random() * 100 + "%", 
             y: "110%",
             rotate: 0,
-            scale: Math.random() * 0.5 + 0.5
+            scale: Math.random() * 0.5 + 0.3
           }}
           animate={{ 
             y: "-10%",
             rotate: 360,
           }}
           transition={{ 
-            duration: Math.random() * 20 + 20,
+            duration: Math.random() * 15 + 15,
             repeat: Infinity,
             ease: "linear",
-            delay: Math.random() * 20
+            delay: Math.random() * 15
           }}
         >
-          <Globe className="w-12 h-12 md:w-20 md:h-20" />
+          <div className="relative">
+            <Globe className="w-12 h-12 md:w-24 md:h-24 blur-[1px]" />
+            <motion.div 
+              className="absolute inset-0 bg-primary/20 rounded-full blur-xl"
+              animate={{ opacity: [0.2, 0.5, 0.2] }}
+              transition={{ duration: 3, repeat: Infinity }}
+            />
+          </div>
         </motion.div>
       ))}
     </div>
@@ -91,7 +98,20 @@ export default function About() {
 
       {/* Header */}
       <div className="pt-32 pb-20 bg-secondary relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 blur-[100px] rounded-full" />
+        {/* Horizontal Full Heading Cover Animation */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-background/60 z-10" />
+          <div 
+            className="w-full h-full bg-cover bg-center opacity-30 animate-pulse"
+            style={{ backgroundImage: `url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2000')` }}
+          />
+          <motion.div 
+            className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-primary/20"
+            animate={{ x: ['-100%', '100%'] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+          />
+        </div>
+        
         <div className="container px-4 md:px-6 mx-auto relative z-10 text-center">
           <div className="max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">About VIP Networks</h1>
