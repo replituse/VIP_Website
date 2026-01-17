@@ -42,18 +42,18 @@ function NetworkParticles() {
   const [particles, setParticles] = useState<any[]>([]);
 
   useEffect(() => {
-    setParticles([...Array(12)].map((_, i) => ({
+    setParticles([...Array(20)].map((_, i) => ({
       id: i,
       left: Math.random() * 100 + "%",
       initialY: Math.random() * 100 + "vh",
-      scale: Math.random() * 0.2 + 0.2,
+      scale: Math.random() * 0.3 + 0.2,
       duration: Math.random() * 30 + 30,
       delay: Math.random() * -60
     })));
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-40">
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-50">
       {particles.map((p) => (
         <motion.div
           key={p.id}
@@ -79,6 +79,11 @@ function NetworkParticles() {
         >
           <div className="relative">
             <Globe className="w-16 h-16 md:w-24 md:h-24 blur-[0.5px]" />
+            <motion.div 
+              className="absolute inset-0 bg-primary/20 rounded-full blur-xl"
+              animate={{ opacity: [0.2, 0.4, 0.2] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            />
           </div>
         </motion.div>
       ))}
