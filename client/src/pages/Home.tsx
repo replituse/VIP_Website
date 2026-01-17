@@ -27,14 +27,13 @@ export default function Home() {
       <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-background/90 z-10" />
-          <img 
-            src={cctvBg} 
-            alt="Surveillance Background" 
-            className="w-full h-full object-cover opacity-30"
+          <div className="absolute inset-0 bg-background/80 z-10" />
+          <div 
+            className="w-full h-full bg-cover bg-center opacity-40 transition-opacity duration-1000"
+            style={{ backgroundImage: `url('https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=2000')` }}
           />
           {/* Animated Grid Overlay */}
-          <div className="absolute inset-0 bg-grid-pattern opacity-20 z-10" />
+          <div className="absolute inset-0 bg-grid-pattern opacity-10 z-10" />
         </div>
 
         <div className="container relative z-20 px-4 md:px-6 text-center">
