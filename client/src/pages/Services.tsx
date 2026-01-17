@@ -3,57 +3,10 @@ import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Check, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
+import { services } from "@/lib/services-data";
 import radarGif from "@assets/CCTV_Camera_1768636156008.gif";
-import securityIcon from "@assets/download1_1768635381877.png";
-import fireIcon from "@assets/image_1768635398231.png";
-import bioIcon from "@assets/image_1768635412180.png";
 
 export default function Services() {
-  const serviceCategories = [
-    {
-      id: "surveillance",
-      title: "CCTV & Surveillance",
-      icon: radarGif,
-      content: "We provide comprehensive surveillance solutions including HD cameras, IP cameras, NVRs, and remote monitoring setups. Our systems ensure 24/7 visibility with night vision and motion detection capabilities.",
-      features: ["HD/IP/Network Cameras", "Night Vision & Motion Detection", "Remote Mobile Monitoring", "Video Analytics"]
-    },
-    {
-      id: "fire-safety",
-      title: "Fire & Safety",
-      icon: radarGif,
-      content: "Protect your premises with our advanced fire detection systems. We install smoke detectors, heat sensors, and integrated alarm panels that respond instantly to threats.",
-      features: ["Conventional & Addressable Panels", "Smoke & Heat Detectors", "Manual Call Points", "Response Integration"]
-    },
-    {
-      id: "biometrics",
-      title: "Biometrics & Access Control",
-      icon: radarGif,
-      content: "Secure your facility with biometric fingerprint scanners, facial recognition, and RFID card systems. Track attendance and restrict unauthorized entry effectively.",
-      features: ["Fingerprint & Facial Recognition", "RFID Card Systems", "Time & Attendance Tracking", "Door Interlocking"]
-    },
-    {
-      id: "networking",
-      title: "Networking & IT Infrastructure",
-      icon: radarGif,
-      content: "We design and implement structured cabling, server racks, switching, and routing solutions to create a robust backbone for your IT operations.",
-      features: ["Structured Cabling (Cat6/Fiber)", "Switches & Routers", "Server Racks & Cabinets", "Wireless Access Points"]
-    },
-    {
-      id: "audio-visual",
-      title: "PA Systems & AV Solutions",
-      icon: radarGif,
-      content: "Enhance communication with our Public Address systems and Audio-Visual setups for conference rooms, auditoriums, and office spaces.",
-      features: ["Conference Room Solutions", "Projectors & Screens", "Public Address Systems", "Background Music Systems"]
-    },
-    {
-      id: "power",
-      title: "Power Backup & UPS",
-      icon: radarGif,
-      content: "Ensure business continuity with our reliable UPS and battery backup solutions designed for critical IT loads.",
-      features: ["Online & Offline UPS", "Battery Banks", "Inverters", "Power Audits"]
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-background text-foreground relative">
       <div className="fixed inset-0 z-0 pointer-events-none opacity-5">
@@ -74,9 +27,9 @@ export default function Services() {
 
       {/* Services List */}
       <div className="py-20 container px-4 md:px-6 mx-auto space-y-24">
-        {serviceCategories.map((service, index) => (
+        {services.map((service, index) => (
           <motion.div 
-            key={service.id}
+            key={index}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -85,26 +38,22 @@ export default function Services() {
           >
             {/* Image/Icon Side */}
             <div className="flex-1 w-full flex justify-center">
-              <div className="relative w-full max-w-md aspect-square rounded-2xl bg-gradient-to-br from-secondary to-card border border-white/10 flex items-center justify-center p-12 shadow-2xl overflow-hidden group">
-                {/* Decorative glow */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                
-                {service.icon ? (
-                  <img src={service.icon as string} alt={service.title} className="w-48 h-48 object-contain drop-shadow-2xl transition-transform duration-500 group-hover:scale-110" />
-                ) : (
-                  <div className="w-48 h-48 rounded-full bg-primary/10 flex items-center justify-center text-primary text-6xl font-bold border border-primary/20">
-                    {service.title.charAt(0)}
-                  </div>
-                )}
+              <div className="relative w-full max-w-lg aspect-video rounded-2xl bg-gradient-to-br from-secondary to-card border border-white/10 shadow-2xl overflow-hidden group">
+                <img 
+                  src={service.image} 
+                  alt={service.title} 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-60" />
               </div>
             </div>
 
             {/* Content Side */}
             <div className="flex-1 w-full">
-              <span className="text-primary font-bold tracking-widest text-sm uppercase mb-2 block">Service {String(index + 1).padStart(2, '0')}</span>
+              <span className="text-primary font-bold tracking-widest text-sm uppercase mb-2 block">Solution {String(index + 1).padStart(2, '0')}</span>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">{service.title}</h2>
               <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                {service.content}
+                {service.description}
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
