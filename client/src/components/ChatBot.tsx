@@ -67,14 +67,14 @@ export function ChatBot() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-[10000]">
+    <div className="fixed bottom-0 right-0 z-[10000]">
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="mb-4 w-[320px] h-[450px] bg-card border border-white/10 rounded-2xl shadow-2xl overflow-hidden flex flex-col backdrop-blur-lg"
+            className="absolute bottom-[160px] right-6 w-[320px] h-[450px] bg-card border border-white/10 rounded-2xl shadow-2xl overflow-hidden flex flex-col backdrop-blur-lg"
           >
             {/* Header */}
             <div className="p-4 bg-primary flex items-center justify-between text-primary-foreground">
@@ -143,7 +143,7 @@ export function ChatBot() {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="w-40 h-40 flex items-center justify-center group relative overflow-visible"
+        className="w-40 h-40 flex items-center justify-center group relative overflow-visible p-0 bg-transparent border-0 shadow-none hover:bg-transparent"
       >
         <img 
           src={chatbotGif} 
