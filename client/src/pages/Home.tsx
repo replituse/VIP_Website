@@ -29,8 +29,8 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-background/80 z-10" />
           <div 
-            className="w-full h-full bg-cover bg-center opacity-40 transition-opacity duration-1000"
-            style={{ backgroundImage: `url('https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=2000')` }}
+            className="w-full h-full bg-cover bg-center opacity-50 transition-opacity duration-1000"
+            style={{ backgroundImage: `url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2000')` }}
           />
           {/* Animated Grid Overlay */}
           <div className="absolute inset-0 bg-grid-pattern opacity-10 z-10" />
