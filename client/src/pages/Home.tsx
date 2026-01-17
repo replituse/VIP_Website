@@ -5,8 +5,7 @@ import { Footer } from "@/components/Footer";
 import { ServiceCard } from "@/components/ServiceCard";
 import { ArrowRight, CheckCircle2, Shield, Network, Zap, Lock, Radio } from "lucide-react";
 import { services } from "@/lib/services-data";
-import radarGif from "@assets/CCTV_Camera_1768636156008.gif";
-import cctvBg from "@assets/CCTV_Camera_1768635376032.gif";
+import cctvGif from "@assets/CCTV_Camera_1768666047284.gif";
 
 export default function Home() {
   const containerVariants = {
@@ -25,6 +24,14 @@ export default function Home() {
       <Navbar />
       {/* HERO SECTION */}
       <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+        {/* CCTV Camera Overlays */}
+        <div className="absolute top-24 left-4 z-30 w-24 h-24 md:w-32 md:h-32 opacity-60 pointer-events-none">
+          <img src={cctvGif} alt="CCTV Left" className="w-full h-full object-contain brightness-150 contrast-125 mix-blend-screen" />
+        </div>
+        <div className="absolute top-24 right-4 z-30 w-24 h-24 md:w-32 md:h-32 opacity-60 pointer-events-none -scale-x-100">
+          <img src={cctvGif} alt="CCTV Right" className="w-full h-full object-contain brightness-150 contrast-125 mix-blend-screen" />
+        </div>
+
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-background/80 z-10" />
