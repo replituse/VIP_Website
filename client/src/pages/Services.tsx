@@ -13,7 +13,19 @@ export default function Services() {
       
       {/* Header */}
       <div className="pt-32 pb-16 bg-secondary relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-10" />
+        {/* Horizontal Full Heading Cover Animation */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-background/60 z-10" />
+          <div 
+            className="w-full h-full bg-cover bg-center opacity-30 animate-pulse"
+            style={{ backgroundImage: `url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2000')` }}
+          />
+          <motion.div 
+            className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-primary/20"
+            animate={{ x: ['-100%', '100%'] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+          />
+        </div>
         <div className="container px-4 md:px-6 mx-auto relative z-10 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">Our Solutions</h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">
