@@ -1,19 +1,64 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { motion } from "framer-motion";
-import { Award, Target, Users, Zap } from "lucide-react";
-import radarGif from "@assets/CCTV_Camera_1768636156008.gif";
+import { motion, useScroll, useSpring, useTransform, useInView } from "framer-motion";
+import { Award, Target, Users, Zap, Shield, Cpu, Globe, Rocket } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
+
+function Counter({ value, suffix = "" }: { value: string; suffix?: string }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const targetValue = parseInt(value.replace(/\D/g, ""));
+
+  useEffect(() => {
+    if (isInView) {
+      let start = 0;
+      const end = targetValue;
+      const duration = 2000;
+      const increment = end / (duration / 16);
+      
+      const timer = setInterval(() => {
+        start += increment;
+        if (start >= end) {
+          setCount(end);
+          clearInterval(timer);
+        } else {
+          setCount(Math.floor(start));
+        }
+      }, 16);
+      return () => clearInterval(timer);
+    }
+  }, [isInView, targetValue]);
+
+  return (
+    <span ref={ref}>
+      {count}
+      {suffix}
+    </span>
+  );
+}
 
 export default function About() {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
   const stats = [
-    { label: "Years Experience", value: "10+" },
-    { label: "Projects Completed", value: "500+" },
-    { label: "Happy Clients", value: "200+" },
-    { label: "Team Members", value: "25+" },
+    { label: "Years Experience", value: "10", suffix: "+" },
+    { label: "Projects Completed", value: "500", suffix: "+" },
+    { label: "Happy Clients", value: "200", suffix: "+" },
+    { label: "Team Members", value: "25", suffix: "+" },
   ];
 
   return (
     <div className="min-h-screen bg-background text-foreground relative">
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1 bg-primary z-[6000] origin-left"
+        style={{ scaleX }}
+      />
       <Navbar />
 
       {/* Header */}
@@ -64,14 +109,24 @@ export default function About() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-primary/5 border-y border-white/5">
-        <div className="container px-4 md:px-6 mx-auto">
+      <section className="py-20 bg-primary/5 border-y border-white/5 relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5" />
+        <div className="container px-4 md:px-6 mx-auto relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, i) => (
-              <div key={i} className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2 font-display">{stat.value}</div>
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, type: "spring" }}
+                className="text-center"
+              >
+                <div className="text-4xl md:text-5xl font-bold text-white mb-2 font-display">
+                  <Counter value={stat.value} suffix={stat.suffix} />
+                </div>
                 <div className="text-primary text-sm uppercase tracking-widest font-semibold">{stat.label}</div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -91,17 +146,17 @@ export default function About() {
             {[
               {
                 title: "Technical Expertise",
-                icon: <Award className="w-8 h-8 text-primary" />,
+                icon: <Cpu className="w-8 h-8 text-primary" />,
                 desc: "Our team consists of certified engineers with deep knowledge in security and networking protocols."
               },
               {
                 title: "Customized Solutions",
-                icon: <Target className="w-8 h-8 text-accent" />,
+                icon: <Globe className="w-8 h-8 text-accent" />,
                 desc: "We don't believe in one-size-fits-all. We design systems tailored to your specific operational needs."
               },
               {
                 title: "Dedicated Support",
-                icon: <Users className="w-8 h-8 text-blue-400" />,
+                icon: <Rocket className="w-8 h-8 text-blue-400" />,
                 desc: "Our relationship doesn't end at installation. We provide ongoing maintenance and rapid support."
               }
             ].map((item, i) => (
