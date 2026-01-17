@@ -41,25 +41,27 @@ function Counter({ value, suffix = "" }: { value: string; suffix?: string }) {
 function NetworkParticles() {
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {[...Array(20)].map((_, i) => (
+      {[...Array(25)].map((_, i) => (
         <motion.div
           key={i}
           className="absolute text-primary/30"
           initial={{ 
             x: Math.random() * 100 + "%", 
-            y: "110%",
+            y: Math.random() * 100 + "%",
             rotate: 0,
-            scale: Math.random() * 0.5 + 0.3
+            scale: Math.random() * 0.5 + 0.3,
+            opacity: 0
           }}
           animate={{ 
-            y: "-10%",
+            y: ["110%", "-10%"],
             rotate: 360,
+            opacity: [0, 1, 1, 0]
           }}
           transition={{ 
             duration: Math.random() * 15 + 15,
             repeat: Infinity,
             ease: "linear",
-            delay: Math.random() * 15
+            delay: Math.random() * -30 // Negative delay to pre-fill the screen
           }}
         >
           <div className="relative">
