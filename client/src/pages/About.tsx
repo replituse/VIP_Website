@@ -38,6 +38,37 @@ function Counter({ value, suffix = "" }: { value: string; suffix?: string }) {
   );
 }
 
+function NetworkParticles() {
+  return (
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+      {[...Array(15)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute text-primary/20"
+          initial={{ 
+            x: Math.random() * 100 + "%", 
+            y: "110%",
+            rotate: 0,
+            scale: Math.random() * 0.5 + 0.5
+          }}
+          animate={{ 
+            y: "-10%",
+            rotate: 360,
+          }}
+          transition={{ 
+            duration: Math.random() * 20 + 20,
+            repeat: Infinity,
+            ease: "linear",
+            delay: Math.random() * 20
+          }}
+        >
+          <Globe className="w-12 h-12 md:w-20 md:h-20" />
+        </motion.div>
+      ))}
+    </div>
+  );
+}
+
 export default function About() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -55,17 +86,14 @@ export default function About() {
 
   return (
     <div className="min-h-screen bg-background text-foreground relative">
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-primary z-[6000] origin-left"
-        style={{ scaleX }}
-      />
+      <NetworkParticles />
       <Navbar />
 
       {/* Header */}
       <div className="pt-32 pb-20 bg-secondary relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 blur-[100px] rounded-full" />
-        <div className="container px-4 md:px-6 mx-auto relative z-10">
-          <div className="max-w-3xl">
+        <div className="container px-4 md:px-6 mx-auto relative z-10 text-center">
+          <div className="max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">About VIP Networks</h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
               We are a premier IT infrastructure provider dedicated to delivering robust, scalable, and secure technology solutions for businesses across India.
@@ -82,10 +110,11 @@ export default function About() {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-card p-10 rounded-3xl border border-white/5 relative overflow-hidden"
+              whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+              className="bg-card p-10 rounded-3xl border border-white/5 relative overflow-hidden hover:border-primary/30 transition-colors"
             >
               <Target className="w-12 h-12 text-primary mb-6" />
-              <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
+              <h2 className="text-2xl font-bold mb-4">Our Mission 🎯</h2>
               <p className="text-muted-foreground leading-relaxed">
                 To empower organizations with reliable, cutting-edge technology infrastructure that ensures security, connectivity, and efficiency. We strive to be the trusted partner that businesses rely on for their digital foundation.
               </p>
@@ -96,10 +125,11 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="bg-card p-10 rounded-3xl border border-white/5 relative overflow-hidden"
+              whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+              className="bg-card p-10 rounded-3xl border border-white/5 relative overflow-hidden hover:border-accent/30 transition-colors"
             >
               <Zap className="w-12 h-12 text-accent mb-6" />
-              <h2 className="text-2xl font-bold mb-4">Our Vision</h2>
+              <h2 className="text-2xl font-bold mb-4">Our Vision ⚡</h2>
               <p className="text-muted-foreground leading-relaxed">
                 To be the leading system integrator in the region, known for our technical excellence, customer-centric approach, and innovative solutions in security and networking.
               </p>
@@ -136,7 +166,7 @@ export default function About() {
       <section className="py-24">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">Why Choose Us?</h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">Why Choose Us? ✨</h2>
             <p className="text-muted-foreground">
               Our commitment to quality and service excellence sets us apart in the competitive IT landscape.
             </p>
