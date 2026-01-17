@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Check, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
+import radarGif from "@assets/CCTV_Camera_1768636156008.gif";
 import securityIcon from "@assets/download1_1768635381877.png";
 import fireIcon from "@assets/image_1768635398231.png";
 import bioIcon from "@assets/image_1768635412180.png";
@@ -12,49 +13,52 @@ export default function Services() {
     {
       id: "surveillance",
       title: "CCTV & Surveillance",
-      icon: securityIcon,
+      icon: radarGif,
       content: "We provide comprehensive surveillance solutions including HD cameras, IP cameras, NVRs, and remote monitoring setups. Our systems ensure 24/7 visibility with night vision and motion detection capabilities.",
       features: ["HD/IP/Network Cameras", "Night Vision & Motion Detection", "Remote Mobile Monitoring", "Video Analytics"]
     },
     {
       id: "fire-safety",
       title: "Fire & Safety",
-      icon: fireIcon,
+      icon: radarGif,
       content: "Protect your premises with our advanced fire detection systems. We install smoke detectors, heat sensors, and integrated alarm panels that respond instantly to threats.",
       features: ["Conventional & Addressable Panels", "Smoke & Heat Detectors", "Manual Call Points", "Response Integration"]
     },
     {
       id: "biometrics",
       title: "Biometrics & Access Control",
-      icon: bioIcon,
+      icon: radarGif,
       content: "Secure your facility with biometric fingerprint scanners, facial recognition, and RFID card systems. Track attendance and restrict unauthorized entry effectively.",
       features: ["Fingerprint & Facial Recognition", "RFID Card Systems", "Time & Attendance Tracking", "Door Interlocking"]
     },
     {
       id: "networking",
       title: "Networking & IT Infrastructure",
-      icon: null, // Default icon fallback
+      icon: radarGif,
       content: "We design and implement structured cabling, server racks, switching, and routing solutions to create a robust backbone for your IT operations.",
       features: ["Structured Cabling (Cat6/Fiber)", "Switches & Routers", "Server Racks & Cabinets", "Wireless Access Points"]
     },
     {
       id: "audio-visual",
       title: "PA Systems & AV Solutions",
-      icon: null,
+      icon: radarGif,
       content: "Enhance communication with our Public Address systems and Audio-Visual setups for conference rooms, auditoriums, and office spaces.",
       features: ["Conference Room Solutions", "Projectors & Screens", "Public Address Systems", "Background Music Systems"]
     },
     {
       id: "power",
       title: "Power Backup & UPS",
-      icon: null,
+      icon: radarGif,
       content: "Ensure business continuity with our reliable UPS and battery backup solutions designed for critical IT loads.",
       features: ["Online & Offline UPS", "Battery Banks", "Inverters", "Power Audits"]
     }
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground relative">
+      <div className="fixed inset-0 z-0 pointer-events-none opacity-5">
+        <img src={radarGif} alt="" className="w-full h-full object-cover" />
+      </div>
       <Navbar />
       
       {/* Header */}

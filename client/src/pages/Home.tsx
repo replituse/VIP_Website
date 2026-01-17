@@ -4,6 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ServiceCard } from "@/components/ServiceCard";
 import { ArrowRight, CheckCircle2, Shield, Network, Zap, Lock, Radio } from "lucide-react";
+import radarGif from "@assets/CCTV_Camera_1768636156008.gif";
 import cctvBg from "@assets/CCTV_Camera_1768635376032.gif";
 import securityIcon from "@assets/download1_1768635381877.png";
 import fireIcon from "@assets/image_1768635398231.png";
@@ -24,37 +25,40 @@ export default function Home() {
     {
       title: "CCTV Surveillance",
       description: "Advanced HD/IP surveillance systems with night vision, motion detection, and remote monitoring capabilities for total peace of mind.",
-      icon: securityIcon
+      icon: radarGif
     },
     {
       title: "Fire Detection",
       description: "State-of-the-art fire alarms and smoke detection systems designed to protect your assets and ensure safety compliance.",
-      icon: fireIcon
+      icon: radarGif
     },
     {
       title: "Access Control",
       description: "Biometric and card-based access control systems to regulate entry and enhance physical security for your premises.",
-      icon: bioIcon
+      icon: radarGif
     },
     {
       title: "Networking Solutions",
       description: "Robust structured cabling, switching, and routing infrastructure for high-speed, reliable connectivity.",
-      icon: <Network className="w-8 h-8" />
+      icon: radarGif
     },
     {
       title: "PA & AV Systems",
       description: "Crystal clear public address systems and immersive audio-visual setups for conference rooms and public spaces.",
-      icon: <Radio className="w-8 h-8" />
+      icon: radarGif
     },
     {
       title: "Power Backup",
       description: "Industrial grade UPS and battery solutions ensuring business continuity during power outages.",
-      icon: <Zap className="w-8 h-8" />
+      icon: radarGif
     }
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden relative">
+      <div className="fixed inset-0 z-0 pointer-events-none opacity-5">
+        <img src={radarGif} alt="" className="w-full h-full object-cover" />
+      </div>
       <Navbar />
 
       {/* HERO SECTION */}

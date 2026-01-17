@@ -7,6 +7,7 @@ import { useSubmitContact } from "@/hooks/use-contact";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Clock, Send, Loader2 } from "lucide-react";
 import { z } from "zod";
+import radarGif from "@assets/CCTV_Camera_1768636156008.gif";
 
 // Frontend validation schema
 const contactSchema = api.contact.submit.input;
@@ -25,7 +26,10 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground relative">
+      <div className="fixed inset-0 z-0 pointer-events-none opacity-5">
+        <img src={radarGif} alt="" className="w-full h-full object-cover" />
+      </div>
       <Navbar />
 
       <div className="pt-32 pb-20 container px-4 md:px-6 mx-auto">
