@@ -39,37 +39,53 @@ function Counter({ value, suffix = "" }: { value: string; suffix?: string }) {
 }
 
 function NetworkParticles() {
+  const [particles, setParticles] = useState<any[]>([]);
+
+  useEffect(() => {
+    setParticles([...Array(60)].map((_, i) => ({
+      id: i,
+      left: Math.random() * 100 + "%",
+      initialY: Math.random() * 100 + "vh",
+      scale: Math.random() * 0.3 + 0.1,
+      duration: Math.random() * 30 + 20,
+      delay: Math.random() * -50
+    })));
+  }, []);
+
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {[...Array(25)].map((_, i) => (
+      {particles.map((p) => (
         <motion.div
-          key={i}
-          className="absolute text-primary/30"
+          key={p.id}
+          className="absolute text-primary/10"
+          style={{ left: p.left }}
           initial={{ 
-            x: Math.random() * 100 + "%", 
-            y: Math.random() * 100 + "%",
+            y: p.initialY,
             rotate: 0,
-            scale: Math.random() * 0.5 + 0.3,
+            scale: p.scale,
             opacity: 0
           }}
           animate={{ 
-            y: ["110%", "-10%"],
-            rotate: 360,
-            opacity: [0, 1, 1, 0]
+            y: ["100vh", "-20vh"],
+            rotate: [0, 180, 360],
+            opacity: [0, 0.4, 0.4, 0]
           }}
           transition={{ 
-            duration: Math.random() * 15 + 15,
+            duration: p.duration,
             repeat: Infinity,
             ease: "linear",
-            delay: Math.random() * -30 // Negative delay to pre-fill the screen
+            delay: p.delay
           }}
         >
           <div className="relative">
-            <Globe className="w-12 h-12 md:w-24 md:h-24 blur-[1px]" />
+            <Globe className="w-16 h-16 md:w-32 md:h-32 blur-[0.5px]" />
             <motion.div 
-              className="absolute inset-0 bg-primary/20 rounded-full blur-xl"
-              animate={{ opacity: [0.2, 0.5, 0.2] }}
-              transition={{ duration: 3, repeat: Infinity }}
+              className="absolute inset-0 bg-primary/20 rounded-full blur-3xl"
+              animate={{ 
+                opacity: [0.1, 0.5, 0.1],
+                scale: [0.8, 1.2, 0.8]
+              }}
+              transition={{ duration: 4, repeat: Infinity }}
             />
           </div>
         </motion.div>
