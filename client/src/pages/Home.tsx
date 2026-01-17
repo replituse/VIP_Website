@@ -4,11 +4,9 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ServiceCard } from "@/components/ServiceCard";
 import { ArrowRight, CheckCircle2, Shield, Network, Zap, Lock, Radio } from "lucide-react";
+import { services } from "@/lib/services-data";
 import radarGif from "@assets/CCTV_Camera_1768636156008.gif";
 import cctvBg from "@assets/CCTV_Camera_1768635376032.gif";
-import securityIcon from "@assets/download1_1768635381877.png";
-import fireIcon from "@assets/image_1768635398231.png";
-import bioIcon from "@assets/image_1768635412180.png";
 
 export default function Home() {
   const containerVariants = {
@@ -21,38 +19,6 @@ export default function Home() {
     }
   };
 
-  const services = [
-    {
-      title: "CCTV Surveillance",
-      description: "Advanced HD/IP surveillance systems with night vision, motion detection, and remote monitoring capabilities for total peace of mind.",
-      icon: radarGif
-    },
-    {
-      title: "Fire Detection",
-      description: "State-of-the-art fire alarms and smoke detection systems designed to protect your assets and ensure safety compliance.",
-      icon: radarGif
-    },
-    {
-      title: "Access Control",
-      description: "Biometric and card-based access control systems to regulate entry and enhance physical security for your premises.",
-      icon: radarGif
-    },
-    {
-      title: "Networking Solutions",
-      description: "Robust structured cabling, switching, and routing infrastructure for high-speed, reliable connectivity.",
-      icon: radarGif
-    },
-    {
-      title: "PA & AV Systems",
-      description: "Crystal clear public address systems and immersive audio-visual setups for conference rooms and public spaces.",
-      icon: radarGif
-    },
-    {
-      title: "Power Backup",
-      description: "Industrial grade UPS and battery solutions ensuring business continuity during power outages.",
-      icon: radarGif
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden relative">

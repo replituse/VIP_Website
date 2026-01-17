@@ -9,25 +9,21 @@ interface ServiceCardProps {
   delay?: number;
 }
 
-export function ServiceCard({ title, description, icon, delay = 0 }: ServiceCardProps) {
+export function ServiceCard({ title, description, image, delay = 0 }: any) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
-      className="group relative bg-card/50 backdrop-blur-sm border border-white/5 hover:border-primary/50 rounded-xl p-6 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1"
+      className="group relative bg-card/50 backdrop-blur-sm border border-white/5 hover:border-primary/50 rounded-xl p-6 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1 hover-elevate active-elevate-2"
     >
       {/* Background Glow Effect */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       
       <div className="relative z-10">
-        <div className="w-14 h-14 mb-6 rounded-lg bg-secondary flex items-center justify-center border border-white/10 group-hover:border-primary/50 group-hover:bg-primary/10 transition-colors">
-          {typeof icon === 'string' ? (
-             <img src={icon} alt={title} className="w-8 h-8 object-contain" />
-          ) : (
-            <div className="text-primary">{icon}</div>
-          )}
+        <div className="w-full h-48 mb-6 rounded-lg bg-secondary overflow-hidden border border-white/10 group-hover:border-primary/50 transition-colors">
+          <img src={image} alt={title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
         </div>
         
         <h3 className="text-xl font-bold mb-3 text-white group-hover:text-primary transition-colors">{title}</h3>
