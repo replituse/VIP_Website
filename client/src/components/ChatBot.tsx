@@ -143,18 +143,18 @@ export function ChatBot() {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="w-20 h-20 flex items-center justify-center group relative overflow-visible"
+        className="w-28 h-28 flex items-center justify-center group relative overflow-visible"
       >
         <img 
           src={chatbotGif} 
           alt="Chat" 
-          className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]" 
+          className="w-full h-full object-contain drop-shadow-[0_0_20px_rgba(59,130,246,0.6)]" 
         />
         {!isOpen && (
           <motion.div 
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            className="absolute top-2 right-2 w-5 h-5 bg-red-500 rounded-full border-2 border-background shadow-lg"
+            className="absolute top-4 right-4 w-6 h-6 bg-red-500 rounded-full border-2 border-background shadow-lg"
           />
         )}
       </motion.button>
