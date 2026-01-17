@@ -14,9 +14,6 @@ export default function About() {
 
   return (
     <div className="min-h-screen bg-background text-foreground relative">
-      <div className="fixed inset-0 z-0 pointer-events-none opacity-5">
-        <img src={radarGif} alt="" className="w-full h-full object-cover" />
-      </div>
       <Navbar />
 
       {/* Header */}

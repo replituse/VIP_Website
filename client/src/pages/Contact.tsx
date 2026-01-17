@@ -27,9 +27,6 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-background text-foreground relative">
-      <div className="fixed inset-0 z-0 pointer-events-none opacity-5">
-        <img src={radarGif} alt="" className="w-full h-full object-cover" />
-      </div>
       <Navbar />
 
       <div className="pt-32 pb-20 container px-4 md:px-6 mx-auto">

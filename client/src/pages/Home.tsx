@@ -22,11 +22,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden relative">
-      <div className="fixed inset-0 z-0 pointer-events-none opacity-5">
-        <img src={radarGif} alt="" className="w-full h-full object-cover" />
-      </div>
-      <Navbar />
-
       {/* HERO SECTION */}
       <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
         {/* Background Image with Overlay */}
@@ -75,17 +70,6 @@ export default function Home() {
             </div>
           </motion.div>
         </div>
-
-        {/* Scroll Indicator */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 text-muted-foreground"
-        >
-          <span className="text-[10px] uppercase tracking-widest">Scroll Down</span>
-          <div className="w-[1px] h-12 bg-gradient-to-b from-primary/50 to-transparent" />
-        </motion.div>
       </section>
 
       {/* INTRO / ABOUT PREVIEW */}

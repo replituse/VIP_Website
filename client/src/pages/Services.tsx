@@ -9,9 +9,6 @@ import radarGif from "@assets/CCTV_Camera_1768636156008.gif";
 export default function Services() {
   return (
     <div className="min-h-screen bg-background text-foreground relative">
-      <div className="fixed inset-0 z-0 pointer-events-none opacity-5">
-        <img src={radarGif} alt="" className="w-full h-full object-cover" />
-      </div>
       <Navbar />
       
       {/* Header */}
