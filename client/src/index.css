@@ -49,11 +49,12 @@
 
 @layer base {
   * {
-    @apply border-border cursor-none;
+    @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body);
+    cursor: none;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);

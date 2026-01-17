@@ -68,8 +68,8 @@ export function ChatBot() {
             {/* Header */}
             <div className="p-4 bg-primary flex items-center justify-between text-primary-foreground">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-white/20 overflow-hidden border border-white/30">
-                  <img src={chatbotGif} alt="Bot" className="w-full h-full object-cover scale-150" />
+                <div className="w-10 h-10 overflow-hidden">
+                  <img src={chatbotGif} alt="Bot" className="w-full h-full object-contain" />
                 </div>
                 <div>
                   <h4 className="font-bold text-sm">VIP Assistant</h4>
@@ -132,18 +132,18 @@ export function ChatBot() {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="w-16 h-16 bg-primary rounded-full shadow-2xl flex items-center justify-center border-4 border-white/10 group relative overflow-hidden"
+        className="w-16 h-16 flex items-center justify-center group relative overflow-visible"
       >
         <img 
           src={chatbotGif} 
           alt="Chat" 
-          className="w-full h-full object-cover scale-150 group-hover:scale-175 transition-transform" 
+          className="w-full h-full object-contain" 
         />
         {!isOpen && (
           <motion.div 
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full border-2 border-primary"
+            className="absolute top-2 right-2 w-4 h-4 bg-red-500 rounded-full border-2 border-background"
           />
         )}
       </motion.button>
