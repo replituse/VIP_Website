@@ -180,7 +180,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
-            {services.map((service, idx) => (
+            {services.slice(0, 6).map((service, idx) => (
               <ServiceCard key={idx} {...service} delay={idx * 0.1} />
             ))}
           </motion.div>
