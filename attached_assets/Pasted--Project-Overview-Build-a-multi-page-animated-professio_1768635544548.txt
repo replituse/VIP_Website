@@ -1,0 +1,240 @@
+📌 Project Overview
+
+Build a multi-page, animated, professional corporate website for VIP Networks, an IT & Infrastructure solutions company.
+
+Use the uploaded company logo and company brochure PDF as the primary brand reference for content, tone, and services.
+
+🎨 Design & Theme
+
+Primary Colors:
+
+Dark Blue
+
+Light Blue
+
+White
+
+Style:
+
+Modern
+
+Corporate
+
+Futuristic
+
+Premium
+
+Look & Feel:
+
+Clean layouts
+
+Smooth transitions
+
+High-end enterprise appearance
+
+Animations:
+
+Use Lottie animations / animated SVGs / micro-interactions
+
+Similar to modern SaaS / tech websites
+
+Animations should enhance UX, not overpower content
+
+🧱 Technology Stack
+
+Frontend:
+
+HTML5
+
+CSS3 (Flexbox + Grid)
+
+JavaScript (ES6+)
+
+Optional Enhancements:
+
+GSAP or CSS animations
+
+Lottie animations (JSON-based)
+
+Fully responsive (Desktop, Tablet, Mobile)
+
+SEO-friendly structure
+
+Fast loading & clean code
+
+🗂 Website Structure (Multi-Page)
+1️⃣ Home Page
+
+Hero Section
+
+Company name: VIP Networks
+
+Tagline: “Visionary | Innovative | Productivity”
+
+Short intro about company
+
+Animated tech / security themed Lottie illustration
+
+About Preview
+
+Brief company overview
+
+“Read More” → About page
+
+Our Works / Solutions
+
+Cards with icons/animations showing:
+
+CCTV Surveillance
+
+Fire & Thermal Systems
+
+Biometrics & Access Control
+
+Networking & Cloud Solutions
+
+Services Section
+
+Animated service cards based on brochure:
+
+CCTV & Networking
+
+Thermal & Fire Detection
+
+Intercom & IPBX
+
+Biometrics & Smart Locks
+
+PA Systems
+
+AV & Automation
+
+Projector & Display
+
+UPS & Battery
+
+IoT / Cloud / Software
+
+Network Booster
+
+Our Brands
+
+Logo slider / carousel
+
+Smooth auto-scroll animation
+
+Testimonials
+
+Client feedback cards
+
+Soft fade / slide animations
+
+Contact Preview
+
+Address
+
+Phone
+
+Email
+
+CTA button → Contact page
+
+Footer
+
+Company details
+
+Quick links
+
+Social icons
+
+Copyright © 2026 VIP Networks
+
+2️⃣ About Page
+
+Company mission & vision
+
+Why choose VIP Networks
+
+Animated timeline or stats counters
+
+Professional corporate tone
+
+3️⃣ Services Page
+
+Detailed service sections (from brochure)
+
+Each service with:
+
+Icon / animation
+
+Description
+
+Bullet points
+
+Clean grid layout
+
+4️⃣ Contact Page
+
+Contact form:
+
+Name
+
+Email
+
+Phone
+
+Message
+
+Company details:
+
+📍 Jogeshwari East, Mumbai – 400060
+
+📞 +91 9326144739
+
+📧 vip.itinfra@gmail.com
+
+Google Map embed
+
+Form validation
+
+⚙️ UX & Performance Requirements
+
+Smooth scroll
+
+Page transition animations
+
+Hover effects on buttons/cards
+
+Accessible color contrast
+
+Mobile-first approach
+
+📁 Project Output
+
+Well-structured folders:
+
+/assets
+
+/css
+
+/js
+
+/pages
+
+Reusable components
+
+Clean, commented code
+
+Ready for deployment
+
+🎯 Final Goal
+
+Create a high-impact, animated corporate website that:
+
+Looks premium
+
+Builds trust
+
+Clearly presents VIP Networks’ services
+
+Feels modern, secure, and innovative
